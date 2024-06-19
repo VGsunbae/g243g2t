@@ -1,23 +1,16 @@
 @import url(reset.css);
+:root{
+    --cor-fundo-barra: olive;
+}
 .barra{
     width: 100vw;
 }
 .barra_conteudo{
-    display: flex;
-    background-color: olive;
+    background-color: var(--cor-fundo-barra);
     width: 100vw;
     height: 70px;
-    flex-direction: row;
-    justify-content: end;
     color: lightpink;
     box-shadow: 3px 5px 5px lightpink;
-}
-.btn{
-    background-color: rgb(144, 190, 221);
-    cursor: pointer;
-}
-.login button{
-    border-radius: 5px;
 }
 .barra_info{
     display: flex;
@@ -26,4 +19,41 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
+}
+.campoInput{
+    width: 200px;
+    height: 30px;
+    position: relative;
+    margin: 3rem 0;
+}
+.campoInput input{
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+    padding: 0 1rem; /*rem é uma medida para tamanho responsivo*/
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid black;
+    border-radius: .5rem;
+    color: black;
+}
+.campoInput label {
+    position: relative;
+    top: 30%;
+    left: 1rem;
+    transform: translateY(-30%);
+    color: black;
+    font-size: 1rem;
+    pointer-events: none;
+    padding: 0 .3rem;
+    background-color: var(--cor-fundo-barra);
+    transition: 200ms ease-in-out top,
+                200ms ease-in-out font-size,
+                200ms ease-in-out color;
+}
+.campoInput input:focus + label , 
+.campoInput input:valid + label {
+    top: -10px;
+    font-size: .8rem;
+    color: black;
 }
